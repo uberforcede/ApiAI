@@ -45,4 +45,30 @@
  */
 @property(nonatomic, copy, readonly) NSDictionary *data;
 
+/**
+ Response displayText. .
+ */
+@property(nonatomic, copy, readonly) NSString *displayText;
+
+/**
+ Response source. .
+ */
+@property(nonatomic, copy, readonly) NSString *source;
+
+/**
+ Response contextOut. .
+ */
+@property(nonatomic, copy, readonly) NSString *contextOut;
+
+/**
+ Response action. .
+ */
+@property(nonatomic, copy, readonly) NSString *action;
+
+/**
+ Response actionParameters. .
+ */
+@property(nonatomic, copy, readonly) NSArray *actionParameters;
+
+
 @end

@@ -31,6 +31,11 @@
         _speech = dictionary[@"speech"];
         _messages = dictionary[@"messages"];
         _data = dictionary[@"data"];
+        _displayText = dictionary[@"displayText"];
+        _source = dictionary[@"source"];
+        _contextOut = dictionary[@"contextOut"];
+        _action = dictionary[@"action"];
+        _actionParameters = dictionary[@"actionParameters"];
     }
     
     return self;

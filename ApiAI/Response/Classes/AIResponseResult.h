@@ -49,6 +49,13 @@
 @property(nonatomic, copy, readonly) NSNumber *actionIncomplete;
 
 /**
+ 'score'
+ */
+
+@property(nonatomic, copy, readonly) NSNumber *score;
+
+
+/**
  Action.
  */
 @property(nonatomic, copy, readonly) NSString *action;

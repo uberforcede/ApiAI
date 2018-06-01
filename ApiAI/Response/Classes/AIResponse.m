@@ -50,11 +50,13 @@
             timestampDateFormatter = dateFormatter;
         });
         
-        _identifier = _response[@"id"];
+//        _identifier = _response[@"id"]; // NO longer needed?
         _timestamp = [timestampDateFormatter dateFromString:_response[@"timestamp"]];
         
         _result = [[AIResponseResult alloc] initWithDictionary:_response[@"result"]];
-        _status = [[AIResponseStatus alloc] initWithDictionary:_response[@"status"]];
+        if (_response[@"status"] != [NSNull null]){
+            _status = [[AIResponseStatus alloc] initWithDictionary:_response[@"status"]];
+        }
     }
     
     return self;

@@ -39,40 +39,49 @@
     self = [super init];
     if (self) {
         self.responseResult = dictionary;
-        
+
         _source = _responseResult[@"source"];
         _resolvedQuery = _responseResult[@"resolvedQuery"];
         _action = _responseResult[@"action"];
         _actionIncomplete = _responseResult[@"actionIncomplete"];
-        
+        _score = _responseResult[@"score"];
+
+
         {
             __block NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-            
+
             NSDictionary *sourceParameters = _responseResult[@"parameters"]?:@{};
-            
-            [sourceParameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                parameters[key] = [[AIResponseParameter alloc] initWithObject:obj];
-            }];
-            
-            _parameters = [parameters copy];
+            if (sourceParameters != [NSNull null]) {
+                [sourceParameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                    parameters[key] = [[AIResponseParameter alloc] initWithObject:obj];
+                }];
+
+                _parameters = [parameters copy];
+            }
+
         }
-        
+
         {
             NSArray *sourceContexts = _responseResult[@"contexts"]?:@[];
-            
+
             NSMutableArray *contexts = [NSMutableArray array];
-            [sourceContexts enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
-                AIResponseContext *context = [[AIResponseContext alloc] initWithDictionary:obj];
-                [contexts addObject:context];
-            }];
-            
+            if (sourceContexts != [NSNull null]) {
+                [sourceContexts enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
+                    AIResponseContext *context = [[AIResponseContext alloc] initWithDictionary:obj];
+                    [contexts addObject:context];
+                }];
+            }
+
             _contexts = [contexts copy];
         }
-        
-        _fulfillment = [[AIResponseFulfillment alloc] initWithDictionary:_responseResult[@"fulfillment"]];
-        _metadata = [[AIResponseMetadata alloc] initWithDictionary:_responseResult[@"metadata"]];
+        if (_responseResult[@"fulfillment"] != [NSNull null]) {
+            _fulfillment = [[AIResponseFulfillment alloc] initWithDictionary:_responseResult[@"fulfillment"]];
+        }
+        if (_responseResult[@"metadata"] != [NSNull null]) {
+            _metadata = [[AIResponseMetadata alloc] initWithDictionary:_responseResult[@"metadata"]];
+        }
     }
-    
+
     return self;
 }
 
