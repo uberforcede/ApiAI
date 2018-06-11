@@ -70,5 +70,10 @@
  */
 @property(nonatomic, copy, readonly) NSArray *actionParameters;
 
+/**
+ Response actionParameters. .
+ */
+@property(nonatomic, copy, readonly) NSNumber *progress;
+
 
 @end

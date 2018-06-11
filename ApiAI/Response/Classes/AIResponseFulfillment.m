@@ -36,6 +36,7 @@
         _contextOut = dictionary[@"contextOut"];
         _action = dictionary[@"action"];
         _actionParameters = dictionary[@"actionParameters"];
+        _progress = dictionary[@"progress"];
     }
     
     return self;
