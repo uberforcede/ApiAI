@@ -9,7 +9,7 @@
     },
 
     "source": {
-        "git": "https://github.com/api-ai/api-ai-ios-sdk.git",
+        "git": "https://github.com/uberforcede/ApiAI.git",
         "tag": "0.11.0"
     },
 
