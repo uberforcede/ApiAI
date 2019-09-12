@@ -75,5 +75,11 @@
  */
 @property(nonatomic, copy, readonly) NSNumber *progress;
 
+/**
+ Response actionParameters. .
+ */
+@property(nonatomic, assign, readonly) BOOL blockEdit;
 
 @end
+
+

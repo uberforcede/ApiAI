@@ -37,6 +37,7 @@
         _action = dictionary[@"action"];
         _actionParameters = dictionary[@"actionParameters"];
         _progress = dictionary[@"progress"];
+        _blockEdit = dictionary[@"blockEdit"];
     }
     
     return self;
