@@ -37,7 +37,8 @@
         _action = dictionary[@"action"];
         _actionParameters = dictionary[@"actionParameters"];
         _progress = dictionary[@"progress"];
-        _blockEdit = dictionary[@"blockEdit"];
+        NSNumber *block = [dictionary valueForKey:@"blockEdit"];
+        _blockEdit = block != nil ? [block boolValue] : FALSE;
     }
     
     return self;
